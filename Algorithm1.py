@@ -18,3 +18,25 @@ Output:
        return -1
 5. Create a queue Q
 6. Create a 2D visited array of size rows x cols, initialized to false
+7. Enqueue (sx, sy, 0) into Q
+   // 0 is the number of moves so far
+8. Mark visited[sx][sy] = true
+
+9. While Q is not empty:
+       Dequeue (x, y, dist)
+
+       If (x, y) = (tx, ty):
+           return dist
+
+       For each direction in {up, down, left, right}:
+           nx = x + dx
+           ny = y + dy
+
+           If nx and ny are inside the grid
+              AND grid[nx][ny] = 0
+              AND visited[nx][ny] = false:
+
+                 Mark visited[nx][ny] = true
+                 Enqueue (nx, ny, dist + 1)
+
+10. Return -1
