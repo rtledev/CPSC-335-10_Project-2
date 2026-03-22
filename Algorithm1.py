@@ -16,3 +16,5 @@ Output:
 
 4. If grid[sx][sy] = 1 or grid[tx][ty] = 1:
        return -1
+5. Create a queue Q
+6. Create a 2D visited array of size rows x cols, initialized to false
