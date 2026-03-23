@@ -38,17 +38,23 @@ def num_rescue_boats(people, limit):
         # In either case, we used one boat
         boats += 1
 
+    # Return the minimum number of boats required
     return boats
 
 
 def main():
-    # Simple test case
-    people = [3, 2, 2, 1]
-    limit = 3
+    # Example 1 from the project sheet
+    people1 = [3, 2, 2, 1]
+    limit1 = 3
 
-    # Print result
-    print(num_rescue_boats(people, limit))
+    # Example 2 from the project sheet
+    people2 = [3, 5, 3, 4, 2, 2, 1, 4, 1]
+    limit2 = 5
 
+    # Print the required outputs
+    print("Example 1 Output:", num_rescue_boats(people1, limit1))  # Expected: 3
+    print("Example 2 Output:", num_rescue_boats(people2, limit2))  # Expected: 5
 
+# Run main only if this file is executed directly
 if __name__ == "__main__":
     main()
