@@ -1,10 +1,10 @@
 import heapq
 
 class Grid:
-    def __init__(self,grid):
-        self.grid = grid
-        self.rows = len(grid)
-        self.cols = len(grid[0])
+    def __init__(self,grid): 
+        self.grid = grid            #creates 2D Grid
+        self.rows = len(grid)       #num of rows
+        self.cols = len(grid[0])    #num of cols
 
     #Determines which move is correct
     def movement_validation(self, r,c):
@@ -31,6 +31,19 @@ class Grid:
 
         while heap:
             d,r,c = heapq.heappop(heap)
+            #target reached
+            if (r,c) == target:
+                    return d
+            #grid traversal
+            for i in self.movement_validation(r,c):
+                new_r, new_c = i
+                distance = d+1
+                if (new_r, new_c) not in dist or distance < dist[(new_r, new_c)]:
+                    dist[(new_r, new_c)] = distance
+                    heapq.heappush(heap, (distance, new_r, new_c))
+        
+        #heap empty
+        return-1        
 
 input1 = [
     [0,0,1,0,0,0],
@@ -56,3 +69,6 @@ input2 = [
 grid_input2 = Grid(input2)
 start = (0,0)
 target =(5,5)
+
+print(grid_input.djikstra_alg(start, target))
+print(grid_input2.djikstra_alg(start,target))
